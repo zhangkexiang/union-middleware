@@ -19,27 +19,27 @@ class CheckSignMiddleware extends BaseMiddleware
         $inputs = request()->all();
         $conf = union_config('union.mid.sign.headers',[]);
 
-
         foreach ($conf as $v){
             $inputs[$v]=request()->header($v,'');
         }
         $sign = '';
-        if(isset($inputs['sgin'])){
+        if(isset($inputs['sign'])){
             $sign = $inputs['sign'];
             unset($inputs['sign']);
         }
         ksort($inputs);
-
         $sourceStr = '';
         foreach ($inputs as $k => $v) {
             $sourceStr .= $k . "=" . $v;
         }
 
         $os = request()->header('os','android');
+//        var_dump('union.mid.sign.secret.'.$os);
+//        union.mid.sign.secret.android
         $secret = union_config('union.mid.sign.secret.'.$os,[]);
-
+//var_dump($secret);die;
         $check1 = md5($sourceStr. md5($secret['first']) . $secret['second']);
-
+//echo $check1;
         if($check1==$sign){
             return '';
         }else{

@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "laravel-dev-common/union-config",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zhangkexiang/union-config.git",
-                "reference": "57d4355a3a95514d27720c0e961d3cc416a3591d"
+                "reference": "f980b27b298e892f45326026d1333d79a5fc6292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/zhangkexiang/union-config/57d4355a3a95514d27720c0e961d3cc416a3591d.zip",
-                "reference": "57d4355a3a95514d27720c0e961d3cc416a3591d",
+                "url": "https://packagist.phpcomposer.com/files/zhangkexiang/union-config/f980b27b298e892f45326026d1333d79a5fc6292.zip",
+                "reference": "f980b27b298e892f45326026d1333d79a5fc6292",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "config",
                 "util"
             ],
-            "time": "2016-12-27 05:22:19"
+            "time": "2016-12-27 09:17:03"
         }
     ],
     "packages-dev": [],
