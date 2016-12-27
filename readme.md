@@ -14,14 +14,28 @@ config/union.php
 return [
     'mid'=>[
         'excepturl'=>[
-            'test/mid'
+//            'test/mid'
         ],
-        'signsecret'=>[
-            'android'=>'11111111111111111111',
-            'ios'=>'2222222222222222222'
+        'sign'=>[
+            'secret'=>[
+                'android'=>[
+                    'first'=>'11111111111111111111',
+                    'second'=>'22222222222222222222'
+                ],
+                'ios'=>[
+                    'first'=>'33333333333333333333',
+                    'second'=>'44444444444444444444'
+                ]
+            ],
+            'headers'=>[
+                'uid'
+            ]
         ]
     ]
+
+
 ];
+
 
 ````
 
