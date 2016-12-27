@@ -1,0 +1,39 @@
+{
+  "name": "laravel-dev-common/union-middleware",
+  "description": "Laravel dev middleware util",
+  "type":"util",
+  "keywords": ["middleware", "util"],
+  "license": "MIT",
+  "homepage": "https://github.com/zhangkexiang/union-middleware",
+  "authors": [
+    {
+      "name": "coding",
+      "email": "zhangkexiang@qingdao1024.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "laravel-dev-common/union-config":"*"
+
+  },
+  "replace": {
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "files": [
+    ],
+    "psr-4": {
+      "Union\\Mid\\": "src/"
+    }
+  },
+  "suggest": {
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}
+
