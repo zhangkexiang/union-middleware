@@ -15,7 +15,7 @@ class CheckSignMiddleware extends BaseMiddleware
 {
 
     protected function match($request){
-        
+
         $inputs = request()->all();
         $conf = union_config('union.mid.sign.headers',[]);
 
@@ -24,7 +24,7 @@ class CheckSignMiddleware extends BaseMiddleware
             $inputs[$v]=request()->header($v,'');
         }
         $sign = '';
-        if(key_exist('sign',$inputs)){
+        if(isset($inputs['sgin'])){
             $sign = $inputs['sign'];
             unset($inputs['sign']);
         }
