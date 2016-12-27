@@ -33,13 +33,12 @@ class CheckSignMiddleware extends BaseMiddleware
             $sourceStr .= $k . "=" . $v;
         }
 
-        $os = request()->header('os','android');
-//        var_dump('union.mid.sign.secret.'.$os);
-//        union.mid.sign.secret.android
+        $os = request()->header('os');
+        if($os==null){
+            $os = 'ios';
+        }
         $secret = union_config('union.mid.sign.secret.'.$os,[]);
-//var_dump($secret);die;
         $check1 = md5($sourceStr. md5($secret['first']) . $secret['second']);
-//echo $check1;
         if($check1==$sign){
             return '';
         }else{
