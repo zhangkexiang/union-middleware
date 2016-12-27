@@ -15,18 +15,39 @@ class CheckSignMiddleware extends BaseMiddleware
 {
 
     protected function match($request){
-        $tmp = rand(1,6);
-        echo $tmp;
-        if($tmp<3){
-            echo '不通过测试';
+        
+        $inputs = request()->all();
+        $conf = union_config('union.mid.sign.headers',[]);
+
+
+        foreach ($conf as $v){
+            $inputs[$v]=request()->header($v,'');
+        }
+        $sign = '';
+        if(key_exist('sign',$inputs)){
+            $sign = $inputs['sign'];
+            unset($inputs['sign']);
+        }
+        ksort($inputs);
+
+        $sourceStr = '';
+        foreach ($inputs as $k => $v) {
+            $sourceStr .= $k . "=" . $v;
+        }
+
+        $os = request()->header('os','');
+        $secret = union_config('union.mid.sign.'.$os,[]);
+
+        $check1 = md5($this->getSourceStr() . md5($secret['first']) . $secret['second']);
+
+        if($check1==$sign){
+            return '';
+        }else{
             return [
                 "code" => 500,
-                "detail" => "测试不通过",
+                "detail" => "签名验证失败",
                 "data"=>[]
             ];
-        }else{
-            echo '通过测试';
-            return '';
         }
     }
 
