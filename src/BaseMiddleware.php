@@ -15,6 +15,10 @@ class BaseMiddleware
 //  校验入口 
     public function handle($request, Closure $next)
     {
+        //环境变量关闭 中间件过滤
+        if(getenv('APP_MID_CONTROL')){
+            return $next($request);
+        }
         //判断是否为 免校验路径
         if($this->shouldPassThrough($request)){
             return $next($request);
