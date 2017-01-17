@@ -43,7 +43,7 @@ class BaseMiddleware
             return [
                 "code" => 500,
                 "detail" => "模版匹配失败",
-                "data"=>[]
+                "data"=>''
             ];
         }else{
             return '';
@@ -55,7 +55,7 @@ class BaseMiddleware
             $result=[
                 "code" => 500,
                 "detail" => "请求被拦截",
-                "data"=>[]
+                "data"=>''
             ];
         }
         return response()->json($result, 200, [], JSON_UNESCAPED_UNICODE);

@@ -45,7 +45,7 @@ class CheckSignMiddleware extends BaseMiddleware
             return [
                 "code" => 500,
                 "detail" => "签名验证失败",
-                "data"=>[]
+                "data"=>''
             ];
         }
     }
